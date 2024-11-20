@@ -7,11 +7,8 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "proxy_settings")
 public class ProxyConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
-    public String ip;
-
-    @ConfigEntry.Gui.Tooltip
-    public String port;
-
+    public String url;
+    
     @ConfigEntry.Gui.Tooltip
     public String secret;
 
