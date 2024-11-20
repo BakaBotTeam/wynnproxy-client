@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "baka.wynnproxy.mixins",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"MixinMinecraftClient"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
