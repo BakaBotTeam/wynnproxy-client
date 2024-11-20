@@ -9,9 +9,8 @@ public class ProxyConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
     public String ip;
 
-    @ConfigEntry.BoundedDiscrete(min = 1, max = 65535)
     @ConfigEntry.Gui.Tooltip
-    public int port;
+    public String port;
 
     @ConfigEntry.Gui.Tooltip
     public String secret;
