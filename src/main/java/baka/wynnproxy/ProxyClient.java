@@ -17,6 +17,5 @@ public class ProxyClient  implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
     }
 }
