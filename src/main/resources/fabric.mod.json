@@ -1,11 +1,13 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "wynnproxy",
 	"version": "${version}",
-	"name": "Example mod",
+	"name": "WynnProxy",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"BakaBotTeam",
+		"Younkoo",
+		"Guimc"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -26,7 +28,9 @@
 		"fabricloader": ">=0.16.5",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"modmenu": ">=11.0.2",
+		"cloth-config": ">=14.0.139"
 	},
 	"suggests": {
 		"another-mod": "*"
