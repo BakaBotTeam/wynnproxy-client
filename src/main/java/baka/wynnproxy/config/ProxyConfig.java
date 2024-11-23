@@ -6,10 +6,8 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = "proxy_settings")
 public class ProxyConfig implements ConfigData {
-    @ConfigEntry.Gui.Tooltip
     public String url;
-    
-    @ConfigEntry.Gui.Tooltip
     public String secret;
+    public String googleApiReverseProxyHost;
 
 }

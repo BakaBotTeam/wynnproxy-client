@@ -1,0 +1,5 @@
+{
+  "text.autoconfig.wynnproxy.option.proxyConfig.url": "代理服务器地址",
+  "text.autoconfig.wynnproxy.option.proxyConfig.secret": "代理服务器密钥",
+  "text.autoconfig.wynnproxy.option.proxyConfig.googleApiReverseProxyHost": "GoogleApi反向代理主机"
+}

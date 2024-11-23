@@ -1,0 +1,5 @@
+{
+  "text.autoconfig.wynnproxy.option.proxyConfig.url": "ProxyServer Url",
+  "text.autoconfig.wynnproxy.option.proxyConfig.secret": "ProxyServer Secret",
+  "text.autoconfig.wynnproxy.option.proxyConfig.googleApiReverseProxyHost": "GoogleApi Reverse Proxy Host"
+}

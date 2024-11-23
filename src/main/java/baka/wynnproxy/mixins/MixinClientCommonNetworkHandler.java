@@ -27,7 +27,6 @@ import java.util.Objects;
 
 @Mixin(ClientCommonNetworkHandler.class)
 public class MixinClientCommonNetworkHandler {
-    @Shadow @Final private static Logger LOGGER;
     @Shadow @Final protected ServerInfo serverInfo;
     @Shadow @Final protected MinecraftClient client;
     @Shadow @Final protected Screen postDisconnectScreen;
@@ -35,8 +34,12 @@ public class MixinClientCommonNetworkHandler {
 
     @Inject(method = "onServerTransfer", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/ClientConnection;handleDisconnection()V", shift = At.Shift.AFTER), cancellable = true)
     private void onServerTransfer(ServerTransferS2CPacket packet, CallbackInfo ci) {
+        if (ProxyClient.CONFIG.proxyConfig.url == null || ProxyClient.CONFIG.proxyConfig.url.isEmpty() || ProxyClient.CONFIG.proxyConfig.secret == null || ProxyClient.CONFIG.proxyConfig.secret.isEmpty()) {
+            ProxyClient.LOGGER.error("Proxy server is not configured, please configure it in the mod menu");
+            return;
+        }
         ci.cancel();
-        LOGGER.info("Sending request to WynnProxy server");
+        ProxyClient.LOGGER.info("Sending request to WynnProxy server");
         long time = System.currentTimeMillis();
         String url = ProxyClient.CONFIG.proxyConfig.url + "?name=" + this.client.getSession().getUsername() + 
                 "&ts=" + time + "&host=" + packet.host() + "&port=" + packet.port();
@@ -52,7 +55,7 @@ public class MixinClientCommonNetworkHandler {
         if (JsonUtils.getIntOr("code", response, -1) != 0) {
             throw new RuntimeException("Failed to contact with WynnProxy server, reason: " + JsonUtils.getStringOr("msg", response, "Unknown"));
         }
-        LOGGER.info("Server transfer to " + packet.host() + ":" + packet.port() + ", modify to origin server");
+        ProxyClient.LOGGER.info("Server transfer to " + packet.host() + ":" + packet.port() + ", modify to origin server");
         int port = 25565;
         String address = serverInfo.address;
         if (address.contains(":")) {

@@ -36,6 +36,7 @@ dependencies {
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_api_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+	modApi(files("libs/wynntils-2.4.2-fabric+MC-1.21.1.jar"))
 
 	// Mod Menu
 	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
