@@ -3,6 +3,7 @@
   "package": "baka.wynnproxy.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MixinConnectionManager",
     "MixinMinecraftClient",
     "MixinUrlManager"
   ],
