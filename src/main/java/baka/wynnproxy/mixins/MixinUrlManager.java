@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinUrlManager {
     @Inject(method = "getUrlInfo", at = @At("RETURN"), cancellable = true)
     public void getUrlInfo(UrlId urlId, CallbackInfoReturnable<UrlManager.UrlInfo> cir) {
+        if (cir.getReturnValue().url() == null) return;
         ProxyClient.LOGGER.info("getUrlInfo {}", cir.getReturnValue().url());
         if (cir.getReturnValue().url().contains("translate.googleapis.com") && ProxyClient.CONFIG.proxyConfig.googleApiReverseProxyHost != null && !ProxyClient.CONFIG.proxyConfig.googleApiReverseProxyHost.isEmpty()) {
             cir.setReturnValue(new UrlManager.UrlInfo(cir.getReturnValue().url().replace("translate.googleapis.com", ProxyClient.CONFIG.proxyConfig.googleApiReverseProxyHost),
